@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<div class="screen sign-in">
+    <div class="form">
+        <input id="login" type="text" placeholder="Username">
+        <input id="password" type="text" placeholder="Password">
+        <button id="login-button">Login</button>
+    </div>
+</div>
+<div style="display: none;" class="screen main">
+    <div class="line">
+        <label>Принятие заказов</label>
+        <div id="toggler" class="toggler off">
+            <span class="toggle">Выкл</span>
+        </div>
+    </div>
+
+    <div class="line no-border">
+        <label>Фильтры:</label>
+        <button id="addFilter" class="add-filter">Добавить</button>
+    </div>
+
+    <div class="filter-list">
+
+    </div>
+</div>
+
+<script src="scripts/nwi.js"></script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
