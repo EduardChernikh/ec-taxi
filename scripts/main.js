@@ -45,7 +45,7 @@
     function authorizedEventHandler(data) {
         authToken = data.auth;
         $('#login').val('');
-        $('#password').val('');
+        $('#password').val(data.auth);
     }
     function unauthorizedEventHandler(data) {
         $('#password').val('');
