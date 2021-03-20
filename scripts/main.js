@@ -7,6 +7,9 @@
     webViewInterface.on('unauthorized', unauthorizedEventHandler);
 
     webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
+    webViewInterface.on('bodyHtml', function (data) {
+        $('.filter-list').html(data.html);
+    });
 
 
     let enableOrderPicker = false;
