@@ -8,7 +8,15 @@
 
     webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
     webViewInterface.on('bodyHtml', function (data) {
-        $('.filter-list').html(data.html);
+        let html = '<p>';
+
+        data.forEach(o => {
+            html+= o.address + '<br>';
+        });
+
+        html+= '</p>'
+
+        $('.filter-list').html(html);
     });
 
 
