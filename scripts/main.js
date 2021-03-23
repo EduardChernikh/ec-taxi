@@ -1,23 +1,10 @@
 (function ($) {
-    let webViewInterface = window.nsWebViewInterface;
+    let webViewInterface = window.nsWebViewBridge;
 
     webViewInterface.on('loadDataResponse', onDataLoaded);
-
     webViewInterface.on('authorized', authorizedEventHandler);
     webViewInterface.on('unauthorized', unauthorizedEventHandler);
-
     webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
-    webViewInterface.on('bodyHtml', function (data) {
-        let html = '<p>';
-
-        data.forEach(o => {
-            html+= o.address + '<br>';
-        });
-
-        html+= '</p>'
-
-        $('.filter-list').html(html);
-    });
 
 
     let enableOrderPicker = false;
