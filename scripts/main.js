@@ -8,6 +8,8 @@
         webViewInterface.on('authorized', authorizedEventHandler);
         webViewInterface.on('unauthorized', unauthorizedEventHandler);
         webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
+
+        webViewInterface.emit('loadData')
     });
 
     let enableOrderPicker = false;
@@ -16,7 +18,6 @@
         $('#login-button').on('click', login);
         $('#orderToggle').on('click', toggleOrderPicker);
         $('#geoToggle').on('click', toggleGeoPicker);
-        webViewInterface.emit('loadData')
     });
 
     function login(e) {
