@@ -1,11 +1,14 @@
 (function ($) {
-    let webViewInterface = window.nsWebViewBridge;
+    let webViewInterface;
 
-    webViewInterface.on('loadDataResponse', onDataLoaded);
-    webViewInterface.on('authorized', authorizedEventHandler);
-    webViewInterface.on('unauthorized', unauthorizedEventHandler);
-    webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
+    window.addEventListener("ns-bridge-ready", function(e) {
+        webViewInterface = e.detail || window.nsWebViewBridge;
 
+        webViewInterface.on('loadDataResponse', onDataLoaded);
+        webViewInterface.on('authorized', authorizedEventHandler);
+        webViewInterface.on('unauthorized', unauthorizedEventHandler);
+        webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
+    });
 
     let enableOrderPicker = false;
     let filtersList;
