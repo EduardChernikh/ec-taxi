@@ -9,7 +9,7 @@
         webViewInterface.on('unauthorized', unauthorizedEventHandler);
         webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
 
-        webViewInterface.emit('loadData')
+        webViewInterface.emit('loadData');
     });
 
     let enableOrderPicker = false;
@@ -25,6 +25,7 @@
         let login = $('#login').val();
         let password = $('#password').val();
         webViewInterface.emit('login', {login, password});
+        $('.form-loader').show();
     }
 
     function toggleOrderPicker(e) {
@@ -53,7 +54,6 @@
         // filtersList.push(value);
         webViewInterface.emit('updateFilters', {filters: filtersList.join(';')});
     }
-
     function removeFilter(e) {
     }
 
@@ -67,19 +67,22 @@
             filtersList = data.filters.split(';');
         }
     }
-
     function authorizedEventHandler(data) {
         $('#login').val('');
         $('#password').val('');
         $('.screen.sign-in').hide();
         $('.screen.main').show();
+        $('.form-loader').hide();
     }
-
     function unauthorizedEventHandler(data) {
         $('#password').val('');
+        $('.form-loader').hide();
+        $('.form-error').show();
+        setTimeout(() => {
+            $('.form-error').hide();
+        }, 1500);
     }
-
-    function  updateToggleEventHandler(data) {
+    function updateToggleEventHandler(data) {
         enableOrderPicker = data.enabled;
         if (enableOrderPicker) {
             $('.toggler').removeClass('on').addClass('off');

@@ -8,9 +8,13 @@
 <body>
 
 <div class="screen sign-in">
+    <div class="form-loader">
+        <div class="lds-dual-ring"></div>
+    </div>
     <div class="form">
         <input id="login" type="text" placeholder="Имя пользователя">
         <input id="password" type="text" placeholder="Пароль">
+        <div class="form-error">Не правильное имя пользователя или пароль</div>
         <button id="login-button">Войти</button>
     </div>
 </div>
