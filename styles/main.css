@@ -178,3 +178,30 @@ html, body, .screen {
     width: 100vw;
     display: none;
 }
+
+.filter-line {
+    display: block;
+    width: 100%;
+    padding: 0.2em 1em;
+    border-top: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.filter-line .label {
+    min-height: 0.9em;
+    display: inline-block;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.filter-line .remove-btn {
+    float: right;
+    border: none;
+    background: red;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.3em;
+    height: 20px;
+    width: 20px;
+    line-height: 10px;
+}

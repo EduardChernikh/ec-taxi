@@ -17,7 +17,6 @@
     $(function () {
         $('#login-button').on('click', login);
         $('#orderToggle').on('click', toggleOrderPicker);
-        $('#geoToggle').on('click', toggleGeoPicker);
     });
 
     function login(e) {
@@ -41,10 +40,6 @@
         webViewInterface.emit('updateOrderToggle', {enabled: enableOrderPicker});
     }
 
-    function toggleGeoPicker(e) {
-
-    }
-
     function addFilter(e) {
         // TODO: hide modal window
         // let value = $("#filterInput").val();
@@ -66,6 +61,14 @@
         } else {
             filtersList = data.filters.split(';');
         }
+
+        let htmlText = '';
+        filtersList.forEach(f => {
+            htmlText += `<div data-filter-text="${f}" class="filter-line">`;
+            htmlText += `<span class="label">${f}</span>`;
+            htmlText += '<button class="remove-btn">х</button></div>';
+        });
+        $('.filter-list').html(htmlText);
     }
     function authorizedEventHandler(data) {
         $('#login').val('');
