@@ -57,11 +57,27 @@
         if(value.length < 3) return;
         filtersList.push(value);
         webViewInterface.emit('updateFilters', {filters: filtersList.join(';')});
+        let htmlText = '';
+        filtersList.forEach(f => {
+            htmlText += `<div data-filter-text="${f}" class="filter-line">`;
+            htmlText += `<span class="label">${f}</span>`;
+            htmlText += '<button class="remove-btn">Удалить</button></div>';
+        });
+        $('.filter-list').html(htmlText);
+        $('.remove-btn').on('click', removeFilter);
     }
     function removeFilter(e) {
         let filterText = $(e.target).parent().attr('data-filter-text');
         filtersList =  filtersList.filter(word => word !== filterText);
         webViewInterface.emit('updateFilters', {filters: filtersList.join(';')});
+        let htmlText = '';
+        filtersList.forEach(f => {
+            htmlText += `<div data-filter-text="${f}" class="filter-line">`;
+            htmlText += `<span class="label">${f}</span>`;
+            htmlText += '<button class="remove-btn">Удалить</button></div>';
+        });
+        $('.filter-list').html(htmlText);
+        $('.remove-btn').on('click', removeFilter);
     }
 
     //Events handlers
@@ -78,7 +94,7 @@
         filtersList.forEach(f => {
             htmlText += `<div data-filter-text="${f}" class="filter-line">`;
             htmlText += `<span class="label">${f}</span>`;
-            htmlText += '<button class="remove-btn">х</button></div>';
+            htmlText += '<button class="remove-btn">Удалить</button></div>';
         });
         $('.filter-list').append(htmlText);
         $('.remove-btn').on('click', removeFilter);
