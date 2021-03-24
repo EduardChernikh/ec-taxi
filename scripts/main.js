@@ -68,7 +68,7 @@
             htmlText += `<span class="label">${f}</span>`;
             htmlText += '<button class="remove-btn">х</button></div>';
         });
-        $('.filter-list').html(htmlText);
+        $('.filter-list').append(htmlText);
     }
     function authorizedEventHandler(data) {
         $('#login').val('');

@@ -184,6 +184,9 @@ html, body, .screen {
     width: 100%;
     padding: 0.2em 1em;
     border-top: 1px solid #c2c2c2;
+}
+
+.filter-line:last-of-type {
     border-bottom: 1px solid #c2c2c2;
 }
 
