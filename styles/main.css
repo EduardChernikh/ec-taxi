@@ -200,7 +200,7 @@ html, body, .screen {
 .filter-line .remove-btn {
     float: right;
     border: none;
-    background: red;
+    background: #e74c3c;
     color: #fff;
     border-radius: 5px;
     padding: 0.3em;
@@ -256,4 +256,8 @@ html, body, .screen {
     padding: 0 1rem;
     width: 100%;
     margin-top: 15px;
+}
+
+.add-filter-modal button#cancel {
+    background: #e74c3c;
 }

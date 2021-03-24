@@ -21,6 +21,10 @@
             $('.add-filter-modal, .add-filter-backdrop').show();
         });
         $('#addFilter').on('click', addFilter);
+        $('#cancel').on('click', () => {
+            $('.add-filter-modal, .add-filter-backdrop').hide();
+            $("#filterInput").val('');
+        });
     });
 
     function login(e) {
