@@ -101,7 +101,7 @@ html, body, .screen {
     top: 0;
     left: 0;
     text-align: center;
-    border-radius: 2vh;
+    border-radius: 14px;
     transition: all 150ms;
 }
 
