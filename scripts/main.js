@@ -17,6 +17,10 @@
     $(function () {
         $('#login-button').on('click', login);
         $('#orderToggle').on('click', toggleOrderPicker);
+        $('#addFilterModal').on('click', () => {
+            $('.add-filter-modal, .add-filter-backdrop').show();
+        });
+        $('#addFilter').on('click', addFilter);
     });
 
     function login(e) {
@@ -41,15 +45,19 @@
     }
 
     function addFilter(e) {
-        // TODO: hide modal window
-        // let value = $("#filterInput").val();
-        // $("#filterInput").val('');
-        // value = value.trim();
-        // if(value.length < 3) return;
-        // filtersList.push(value);
+        $('.add-filter-modal, .add-filter-backdrop').hide();
+        let $filterInput = $("#filterInput");
+        let value = $filterInput.val();
+        $filterInput.val('');
+        value = value.trim().toLowerCase();
+        if(value.length < 3) return;
+        filtersList.push(value);
         webViewInterface.emit('updateFilters', {filters: filtersList.join(';')});
     }
     function removeFilter(e) {
+        let filterText = $(e.target).parent().attr('data-filter-text');
+        filtersList =  filtersList.filter(word => word !== filterText);
+        webViewInterface.emit('updateFilters', {filters: filtersList.join(';')});
     }
 
     //Events handlers
@@ -69,6 +77,7 @@
             htmlText += '<button class="remove-btn">х</button></div>';
         });
         $('.filter-list').append(htmlText);
+        $('.remove-btn').on('click', removeFilter);
     }
     function authorizedEventHandler(data) {
         $('#login').val('');

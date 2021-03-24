@@ -19,6 +19,12 @@
     </div>
 </div>
 <div style="display: none;" class="screen main">
+    <div class="add-filter-backdrop"></div>
+    <div class="add-filter-modal">
+        <p class="text">Добавить фильтр</p>
+        <input type="text" id="filterInput">
+        <button id="addFilter"></button>
+    </div>
     <div class="line">
         <label>Принятие заказов</label>
         <div id="orderToggle" class="toggler off">
@@ -28,7 +34,7 @@
 
     <div class="line no-border">
         <label>Фильтры:</label>
-        <button id="addFilter" class="add-filter">Добавить</button>
+        <button id="addFilterModal" class="add-filter">Добавить</button>
     </div>
 
     <div class="filter-list">
