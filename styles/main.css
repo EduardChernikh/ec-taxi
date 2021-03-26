@@ -260,3 +260,23 @@ html, body, .screen {
 .add-filter-modal button#cancel {
     background: #e74c3c;
 }
+
+.list {
+    display: block;
+    height: calc(100% - 108px);
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+    z-index: 999999;
+    background: #5d6164;
+    left: 0;
+    bottom: 0;
+}
+
+.filter-list {
+    display: block;
+    height: calc(100% - 108px);
+    overflow: auto;
+    overflow-x: hidden;
+}

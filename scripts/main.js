@@ -8,6 +8,14 @@
         webViewInterface.on('authorized', authorizedEventHandler);
         webViewInterface.on('unauthorized', unauthorizedEventHandler);
         webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
+        webViewInterface.on('filteredList', (msg) => {
+            let list = msg.data.list;
+            let html = '';
+            list.forEach(entry => {
+                html += `<p>${entry.address}</p><br>`;
+            })
+            $('.list').html(html);
+        });
 
         webViewInterface.emit('loadData');
     });
@@ -125,3 +133,19 @@
         }
     }
 })(jQuery)
+
+
+function getOrdersList() {
+    let list = []
+    document.querySelectorAll('a.red').forEach(n => {
+        let url = new URL(n.href);
+        let searchParams = new URLSearchParams(url.search);
+        list.push({
+            address: n.textContent,
+            orderId: searchParams.get('order')
+        });
+    });
+
+    return list;
+}
+getOrdersList();
