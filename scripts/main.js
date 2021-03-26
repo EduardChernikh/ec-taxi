@@ -8,14 +8,6 @@
         webViewInterface.on('authorized', authorizedEventHandler);
         webViewInterface.on('unauthorized', unauthorizedEventHandler);
         webViewInterface.on('updateOrderToggle', updateToggleEventHandler);
-        webViewInterface.on('filteredList', (data) => {
-            let list = data.list;
-            let html = '';
-            list.forEach(entry => {
-                html += `<p>${entry.address}</p><br>`;
-            })
-            $('.list').html(html);
-        });
 
         webViewInterface.emit('loadData');
     });
