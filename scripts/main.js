@@ -125,19 +125,3 @@
         }
     }
 })(jQuery)
-
-
-function getOrdersList() {
-    let list = []
-    document.querySelectorAll('a.red').forEach(n => {
-        let url = new URL(n.href);
-        let searchParams = new URLSearchParams(url.search);
-        list.push({
-            address: n.textContent,
-            orderId: searchParams.get('order')
-        });
-    });
-
-    return list;
-}
-getOrdersList();
