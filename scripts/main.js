@@ -116,7 +116,7 @@
     }
     function updateToggleEventHandler(data) {
         enableOrderPicker = data.enabled;
-        if (enableOrderPicker) {
+        if (!enableOrderPicker) {
             $('.toggler').removeClass('on').addClass('off');
             $('.toggler .toggle').html('Выкл');
         } else {
